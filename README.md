@@ -2,6 +2,8 @@
 
 Get all information about a specific commit.
 
+[![Build Status](https://travis-ci.org/JPeer264/node-git-commit-info.svg?branch=master)](https://travis-ci.org/JPeer264/node-git-commit-info)
+
 ## Installation
 
 ```sh
