@@ -1,7 +1,7 @@
 {
-  "name": "git-needs-push",
-  "version": "1.0.0",
-  "description": "Check synchronously if a git repository needs to push",
+  "name": "git-commit-info",
+  "version": "0.0.0",
+  "description": "Get the info of an specific commit hash",
   "main": "build.js",
   "scripts": {
     "pretest": "npm run lint",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JPeer264/node-git-needs-push.git"
+    "url": "git+https://github.com/JPeer264/node-git-commit-info.git"
   },
   "keywords": [
     "is",
@@ -28,15 +28,14 @@
   "author": "Jan Peer Stöcklmair",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/JPeer264/node-git-needs-push/issues"
+    "url": "https://github.com/JPeer264/node-git-commit-info/issues"
   },
   "ava": {
     "require": "babel-register",
     "babel": "inherit"
   },
-  "homepage": "https://github.com/JPeer264/node-git-needs-push#readme",
+  "homepage": "https://github.com/JPeer264/node-git-commit-info#readme",
   "dependencies": {
-    "current-git-branch": "^1.0.0",
     "execa": "^0.6.1",
     "is-git-repository": "^1.1.1",
     "path-is-absolute": "^1.0.1"

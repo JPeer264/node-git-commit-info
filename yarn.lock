@@ -1212,13 +1212,6 @@ crypto-random-string@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/crypto-random-string/-/crypto-random-string-1.0.0.tgz#a230f64f568310e1498009940790ec99545bca7e"
 
-current-git-branch@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/current-git-branch/-/current-git-branch-1.0.0.tgz#2eff7b84b5b15d2e896d6b0d82355ac25ae73461"
-  dependencies:
-    execa "^0.6.1"
-    is-git-repository "^1.0.0"
-
 currently-unhandled@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/currently-unhandled/-/currently-unhandled-0.4.1.tgz#988df33feab191ef799a61369dd76c17adf957ea"
@@ -2159,7 +2152,7 @@ is-generator-fn@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/is-generator-fn/-/is-generator-fn-1.0.0.tgz#969d49e1bb3329f6bb7f09089be26578b2ddd46a"
 
-is-git-repository@^1.0.0, is-git-repository@^1.1.1:
+is-git-repository@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/is-git-repository/-/is-git-repository-1.1.1.tgz#c68e4b7a806422349aaec488973a90558d7e9be0"
   dependencies:
