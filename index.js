@@ -49,6 +49,7 @@ const gitCommitInfo = ({ cwd, commit } = {}) => {
       message,
     };
   } catch (e) {
+    console.info(e);
     return {};
   }
 };
