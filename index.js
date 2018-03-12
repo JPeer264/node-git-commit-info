@@ -30,12 +30,13 @@ const gitCommitInfo = ({ cwd, commit } = {}) => {
     const info = exec.stdout
       .split('\n')
       .filter(entry => entry.length !== 0);
+    const mergeIndex = info[1].indexOf('Merge') === -1 ? 0 : 1;
 
     const hash = new RegExp(regex).exec(info[0])[1];
     const shortHash = hash.slice(0, 7);
-    const author = new RegExp(regex).exec(info[1])[1].match(/([^<]+)/)[1].trim();
-    const email = new RegExp(regex).exec(info[1])[1].match(/<([^>]+)>/)[1];
-    const date = new RegExp(regex).exec(info[2])[1];
+    const author = new RegExp(regex).exec(info[1 + mergeIndex])[1].match(/([^<]+)/)[1].trim();
+    const email = new RegExp(regex).exec(info[1 + mergeIndex])[1].match(/<([^>]+)>/)[1];
+    const date = new RegExp(regex).exec(info[2 + mergeIndex])[1];
     const message = exec.stdout.split('\n\n')[1].trim();
 
     return {
