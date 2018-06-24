@@ -10,6 +10,7 @@ const fixtures = path.join(process.cwd(), 'test', 'fixtures');
 const folders = [
   'upToDate',
   'multiline',
+  'merge',
 ];
 
 test.before('rename git folders', () => {
@@ -50,6 +51,26 @@ test('unknown commit hash', (t) => {
   });
 
   t.deepEqual(latestInfo, {});
+});
+
+test('merge conflict - named automatically', (t) => {
+  const mergeInfo = gitCommitInfo({
+    cwd: path.join(fixtures, 'merge'),
+    commit: '76d090566587fa5e97035b8c133866eb0116d7c0',
+  });
+
+  t.is(mergeInfo.commit, '76d090566587fa5e97035b8c133866eb0116d7c0');
+  t.is(mergeInfo.message, `Merge branch 'test/merge'`);
+});
+
+test('merge conflict - named randomly', (t) => {
+  const mergeInfo = gitCommitInfo({
+    cwd: path.join(fixtures, 'merge'),
+    commit: 'e49bfdc2285f13aa5cc206a02a4f41b335026ea5',
+  });
+
+  t.is(mergeInfo.commit, 'e49bfdc2285f13aa5cc206a02a4f41b335026ea5');
+  t.is(mergeInfo.message, 'My message');
 });
 
 test('no git repo', (t) => {
