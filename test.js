@@ -50,7 +50,7 @@ test('unknown commit hash', (t) => {
     commit: 'does not work',
   });
 
-  t.deepEqual(latestInfo, {});
+  t.truthy(latestInfo.error);
 });
 
 test('merge conflict - named automatically', (t) => {
