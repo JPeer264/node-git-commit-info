@@ -4,3 +4,4 @@ build.js
 npm-debug.log
 coverage
 .vscode
+.DS_Store
