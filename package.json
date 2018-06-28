@@ -1,12 +1,12 @@
 {
   "name": "git-commit-info",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Get the info of an specific commit hash",
   "main": "build.js",
   "scripts": {
     "pretest": "npm run lint",
     "test": "nyc ava",
-    "lint": "eslint index.js",
+    "lint": "eslint index.js test.js",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "prepublish": "npm run babel",
     "babel": "babel index.js -o build.js",

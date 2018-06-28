@@ -22,7 +22,7 @@ test.after.always('rename .git folders', () => {
 });
 
 test('up to date', (t) => {
-  const latestInfo = gitCommitInfo({ cwd: path.join(fixtures, 'multiline')});
+  const latestInfo = gitCommitInfo({ cwd: path.join(fixtures, 'multiline') });
 
   t.is(latestInfo.message, 'do not merge');
   t.is(latestInfo.author, 'JPeer264');
@@ -60,7 +60,7 @@ test('merge conflict - named automatically', (t) => {
   });
 
   t.is(mergeInfo.commit, '76d090566587fa5e97035b8c133866eb0116d7c0');
-  t.is(mergeInfo.message, `Merge branch 'test/merge'`);
+  t.is(mergeInfo.message, 'Merge branch \'test/merge\'');
 });
 
 test('merge conflict - named randomly', (t) => {
