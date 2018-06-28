@@ -49,9 +49,8 @@ const gitCommitInfo = ({ cwd, commit } = {}) => {
       date,
       message,
     };
-  } catch (e) {
-    console.info(e);
-    return {};
+  } catch (error) {
+    return { error };
   }
 };
 
