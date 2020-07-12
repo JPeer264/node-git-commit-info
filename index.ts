@@ -1,22 +1,33 @@
 import execa from 'execa';
 import isGit from 'is-git-repository';
 import path from 'path';
-import isAbsolute from 'is-absolute';
 
 export interface GitCommitInfoOptions {
   cwd?: string;
   commit?: string;
 }
 
-const processCwd = process.cwd();
+export interface GitCommitInfoResult {
+  hash?: string;
+  shortHash?: string;
+  commit?: string;
+  shortCommit?: string;
+  author?: string;
+  email?: string;
+  date?: string;
+  message?: string;
+  error?: Error,
+}
+
 const regex = /\s+([\s\S]*)/g; // matches everything after the first whitespace
 
-const gitCommitInfo = ({ cwd, commit }: GitCommitInfoOptions = {}) => {
+const gitCommitInfo = (options: GitCommitInfoOptions = {}): GitCommitInfoResult => {
+  const {
+    cwd = process.cwd(),
+    commit,
+  } = options;
   const thisCommit = commit || '';
-
-  let thisPath = cwd || processCwd;
-
-  thisPath = isAbsolute(thisPath) ? thisPath : path.join(cwd, thisPath);
+  const thisPath = path.resolve(cwd);
 
   if (!isGit(thisPath)) {
     return {};
@@ -32,9 +43,16 @@ const gitCommitInfo = ({ cwd, commit }: GitCommitInfoOptions = {}) => {
 
     const hash = (new RegExp(regex).exec(info[0]) || [])[1];
     const shortHash = hash.slice(0, 7);
-    const author = new RegExp(regex).exec(info[1 + mergeIndex])[1].match(/([^<]+)/)[1].trim();
-    const email = new RegExp(regex).exec(info[1 + mergeIndex])[1].match(/<([^>]+)>/)[1];
-    const date = new RegExp(regex).exec(info[2 + mergeIndex])[1];
+
+    const getInfo = (index: number): string | undefined => {
+      const [, extractedInfo] = (new RegExp(regex).exec(info[index]) || []);
+
+      return extractedInfo;
+    };
+
+    const author = (getInfo(1 + mergeIndex)?.match(/([^<]+)/) || [])[1]?.trim();
+    const [, email] = getInfo(1 + mergeIndex)?.match(/<([^>]+)>/) || [];
+    const date = getInfo(2 + mergeIndex);
     const message = stdout.split('\n\n')[1].trim();
 
     return {

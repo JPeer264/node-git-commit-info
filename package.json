@@ -43,14 +43,12 @@
   "homepage": "https://github.com/JPeer264/node-git-commit-info#readme",
   "dependencies": {
     "execa": "^4.0.3",
-    "is-absolute": "^1.0.0",
     "is-git-repository": "^1.1.1",
     "path-is-absolute": "^1.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.4",
     "@types/fs-extra": "^9.0.1",
-    "@types/is-absolute": "^1.0.0",
     "@types/jest": "^26.0.4",
     "@types/uuid": "^8.0.0",
     "@typescript-eslint/eslint-plugin": "^3.6.0",
