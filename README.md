@@ -4,6 +4,7 @@ Get all information about a specific commit.
 
 [![Build Status](https://travis-ci.org/JPeer264/node-git-commit-info.svg?branch=master)](https://travis-ci.org/JPeer264/node-git-commit-info)
 [![Build status](https://ci.appveyor.com/api/projects/status/itogtq2ri9e2i24y/branch/master?svg=true)](https://ci.appveyor.com/project/JPeer264/node-git-commit-info/branch/master)
+[![Coverage Status](https://coveralls.io/repos/github/JPeer264/node-git-commit-info/badge.svg?branch=master)](https://coveralls.io/github/JPeer264/node-git-commit-info?branch=master)
 
 ## Installation
 
