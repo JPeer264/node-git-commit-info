@@ -56,6 +56,16 @@ test('unknown commit hash', () => {
   expect(!!latestInfo.error).toBe(true);
 });
 
+test('check up to date', () => {
+  const mergeInfo = gitCommitInfo({
+    cwd: path.join(fixtures, 'upToDate'),
+    commit: '31107b9051efe17e57c583937e027993860b11a9',
+  });
+
+  expect(mergeInfo.commit).toBe('31107b9051efe17e57c583937e027993860b11a9');
+  expect(mergeInfo.message).toBe('Initial commit');
+});
+
 test('merge conflict - named automatically', () => {
   const mergeInfo = gitCommitInfo({
     cwd: path.join(fixtures, 'merge'),

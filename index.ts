@@ -39,7 +39,7 @@ const gitCommitInfo = (options: GitCommitInfoOptions = {}): GitCommitInfoResult 
     const info = stdout
       .split('\n')
       .filter((entry) => entry.length !== 0);
-    const mergeIndex = info[1].indexOf('Merge') === -1 ? 0 : 1;
+    const mergeIndex = info[1]?.indexOf('Merge') === -1 ? 0 : 1;
 
     const hash = (new RegExp(regex).exec(info[0]) || [])[1];
     const shortHash = hash.slice(0, 7);
