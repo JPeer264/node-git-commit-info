@@ -1,3 +1,7 @@
+2.0.1 - January, 12 2022
+
+* f42cee3 Fix: should noop if info array has no values (closes #14) (JPeer264)
+
 2.0.0 - July, 12 2020
 
 * 34f194b Docs: update travis badge (JPeer264)
