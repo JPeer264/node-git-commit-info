@@ -1,3 +1,7 @@
+2.0.2 - June, 08 2023
+
+* f7c491e Fix: validate commit hashes before executing them | closes #24 (JPeer264)
+
 2.0.1 - January, 12 2022
 
 * f42cee3 Fix: should noop if info array has no values (closes #14) (JPeer264)
