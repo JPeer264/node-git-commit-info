@@ -20,6 +20,7 @@ export interface GitCommitInfoResult {
 }
 
 const regex = /\s+([\s\S]*)/g; // matches everything after the first whitespace
+const hashRegex = /^[0-9a-f]{7,40}$/;
 
 const gitCommitInfo = (options: GitCommitInfoOptions = {}): GitCommitInfoResult => {
   const {
@@ -28,6 +29,10 @@ const gitCommitInfo = (options: GitCommitInfoOptions = {}): GitCommitInfoResult 
   } = options;
   const thisCommit = commit || '';
   const thisPath = path.resolve(cwd);
+
+  if ((thisCommit && !(new RegExp(hashRegex).test(thisCommit)))) {
+    return { error: new Error('Not a valid commit hash') };
+  }
 
   if (!isGit(thisPath)) {
     return {};

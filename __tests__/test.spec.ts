@@ -93,3 +93,12 @@ test('no git repo', () => {
 
   expect(latestInfo).toEqual({});
 });
+
+test('ignore invalid commits | #24', () => {
+  const latestInfo = gitCommitInfo({
+    cwd: path.join(fixtures, 'merge'),
+    commit: '82442c2405804d7aa44e7bedbc0b93bb17707626 || touch ci ||',
+  });
+
+  expect(latestInfo.error).toBeInstanceOf(Error);
+});
